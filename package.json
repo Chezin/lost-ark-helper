@@ -1,0 +1,31 @@
+{
+  "name": "lost-ark-helper",
+  "version": "1.0.0",
+  "description": "This is a tool intended to help with playing Lost Ark and its millions of systems and mechanics.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chezin/lost-ark-helper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chezin/lost-ark-helper/issues"
+  },
+  "homepage": "https://github.com/Chezin/lost-ark-helper#readme",
+  "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.5.0",
+    "electron": "^17.1.2",
+    "react": "^17.0.2",
+    "typescript": "^4.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0"
+  }
+}
