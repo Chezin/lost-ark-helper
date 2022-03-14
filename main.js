@@ -1,14 +1,13 @@
-process.env.NODE_ENV = 'development';
-
 const { BrowserWindow, app, ipcMain, Notification } = require('electron');
 const path = require('path');
 const isDev = !app.isPackaged;
 
-function createWindow() {
-  const win = new BrowserWindow({
+const createWindow = () => {
+  const window = new BrowserWindow({
     width: 1200,
     height: 800,
     backgroundColor: "white",
+    title: "Lost Ark Helper",
     webPreferences: {
       nodeIntegration: false,
       worldSafeExecuteJavaScript: true,
@@ -17,7 +16,7 @@ function createWindow() {
     }
   })
 
-  win.loadFile('index.html');
+  window.loadFile('index.html');
 }
 
 if (isDev) {

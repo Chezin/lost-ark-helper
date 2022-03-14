@@ -1,6 +1,6 @@
 # Lost Ark Helper
 This is a tool intended to help with playing Lost Ark and its millions of systems and mechanics.
-
+I am currently planning to use Electron alongside React and a few other things but I might change my mind.
 
 I don't intend for this to use any traditional database as of yet so we're just gonna edit json files. If I feel the need to do so, I'll implement it.
 This is gonna be an open source project, so I need to think about how internationalization is gonna work from the ground up and make it easierto translate it to other languages.
