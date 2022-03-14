@@ -1,34 +1,33 @@
-const { app, BrowserWindow } = require('electron');
-const windowBundle = require('./bundles/window.json');
+process.env.NODE_ENV = 'development';
 
-const START_URL = 'http://localhost:3000';
+const { BrowserWindow, app, ipcMain, Notification } = require('electron');
+const path = require('path');
+const isDev = !app.isPackaged;
 
-const createWindow = () => {
-  const mainWindow = new BrowserWindow({
-    width: 1280,
-    height: 720,
-    title: windowBundle.windowTitle,
+function createWindow() {
+  const win = new BrowserWindow({
+    width: 1200,
+    height: 800,
+    backgroundColor: "white",
     webPreferences: {
-        nodeIntegration: true
+      nodeIntegration: false,
+      worldSafeExecuteJavaScript: true,
+      contextIsolation: true,
+      preload: path.join(__dirname, 'preload.js')
     }
-})
+  })
 
-  mainWindow.removeMenu();
-  mainWindow.loadURL(START_URL);
-  mainWindow.webContents.openDevTools();
+  win.loadFile('index.html');
 }
 
-app.whenReady().then(createWindow);
+if (isDev) {
+  require('electron-reload')(__dirname, {
+    electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
+  })
+}
 
-app.on('window-all-closed', () => {
-    console.log(process.platform);
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
+ipcMain.on('notify', (_, message) => {
+  new Notification({title: 'Notifiation', body: message}).show();
+})
 
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
-});
+app.whenReady().then(createWindow)
