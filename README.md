@@ -48,3 +48,7 @@ Used to track, uh, weekly roster buyables
 - Merchant ship materials
 - Maybe event sellers
 - Sylmael bloodstone sellers
+
+## MOKOKO SEEDS TRACKER
+
+A basic mokoko seed area tracked just so you know if you're stuck with some stat/level lock on a certain seed or you 100%'d the area, nothing too fancy
